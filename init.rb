@@ -1,1 +1,1 @@
-require 'bing_ruby'
+require 'bing_ruby' 

@@ -10,15 +10,13 @@ end
 
 module BingRuby
   module String
-    ##############################################################################
-    #BingRuby methods
-    ##############################################################################
+
     def remove_diacritics
-      self.downcase.chars.normalize(:kd).to_s.gsub(/[^\x00-\x7F]/, '').downcase
+      self.downcase.mb_chars.normalize(:kd).to_s.gsub(/[^\x00-\x7F]/, '').downcase
     end
     
     def remove_diacritics_cs
-      self.chars.normalize(:kd).to_s.gsub(/[^\x00-\x7F]/, '')
+      self.mb_chars.normalize(:kd).to_s.gsub(/[^\x00-\x7F]/, '')
     end    
     
     def to_url

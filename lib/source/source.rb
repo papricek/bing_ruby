@@ -55,7 +55,11 @@ module BingRuby
     def strip_special_objects
       self.gsub(/\*(graf|sloupcovy_graf|kolacovy_graf|fotogalerie|mapa|video_youtube|obrazek_vlevo|obrazek_vpravo|obrazek_stred)\*(.+?)\*(.+?)\*/m, "").gsub(/\*ramecek\*/, "")
     end
-    
+
+    def raquo
+      self + " &raquo;"
+    end
+
     def html_to_latex
       nahrady = [] << [/<\/p>/, " \\newline \n "] << [/<p>/, " "] << [/<\/div>/, " \\newline \n "] << [/<br \/>/, " \\newline \n "]
       nahrady << [/<\/li>/,""] << [/<li>/," \\item "]

@@ -1,11 +1,10 @@
 require 'singleton'
 require 'white_list_helper'
+
 # Singleton to be called in wrapper module
 class TextHelperSingleton
   include Singleton
   include ActionView::Helpers
-  #include WhiteListHelper
-
 end
 
 module BingRuby
@@ -101,9 +100,6 @@ module BingRuby
       Iconv.iconv("windows-1250", "utf-8", self.strip_tags.strip_special_objects)
     end
   
-    ##############################################################################
-    #TextHelper and SanitizeHelper methods
-    ##############################################################################
     def auto_link(link = :all, href_options = {}, &block)
       TextHelperSingleton.instance.auto_link(self, link, href_options, &block)
     end

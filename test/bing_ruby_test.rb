@@ -99,9 +99,7 @@ class BingRubyTest < Test::Unit::TestCase
     assert_equal 'Once upon a time'.word_wrap(4), "Once\nupon\na\ntime"  
   end
   
-  def test_white_list
-    assert_equal @html_short.white_list, "<h3 class=\"title\"><a href=\"/?q=d#com588\" class=\"active\">Showoff</a></h3>"
-  end
+
   
   
 end

@@ -3,9 +3,9 @@ require 'white_list_helper'
 # Singleton to be called in wrapper module
 class TextHelperSingleton
   include Singleton
-  include ActionView::Helpers::SanitizeHelper
-  include ActionView::Helpers::TextHelper
-  include WhiteListHelper
+  include ActionView::Helpers
+  #include WhiteListHelper
+
 end
 
 module BingRuby
@@ -116,8 +116,8 @@ module BingRuby
       TextHelperSingleton.instance.highlight(self, phrase, highlighter)
     end
     
-    def sanitize
-      TextHelperSingleton.instance.sanitize(self)
+    def sanitize(options = {})
+      TextHelperSingleton.instance.sanitize(self, options)
     end
         
     def strip_tags
@@ -131,10 +131,7 @@ module BingRuby
     def word_wrap(line_width = 80)
       TextHelperSingleton.instance.word_wrap(self, line_width)
     end
-    
-    def white_list(&block)
-      TextHelperSingleton.instance.white_list(self, &block)
-    end
+
   end
   
 
